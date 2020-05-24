@@ -13,7 +13,8 @@ function resetSite() {
 let userInput = prompt("How many squares per site?", "32");
 
 function createDivs(userInput) {
-     for (i = 0; i < (userInput * userInput); i++) {
+    container.setAttribute('style', 'grid-template-columns: repeat('+ userInput +', 1fr)');
+    for (let i = 0; i < (userInput * userInput); i++) {
         let newDiv = document.createElement('div');
         newDiv.setAttribute('id', 'square');
 
@@ -25,19 +26,9 @@ function createDivs(userInput) {
     }
 }
 
-function adjustGrid(userInput) {
-    container.style.setProperty(
-        "grid-template-rows", `repeat(${userInput}, 1fr, !important)`
-    );
-
-    container.style.setProperty(
-        "grid-template-columns", `repeat(${userInput}, 1fr, !important)`
-    );
-}
-
 
 createDivs(userInput);
-adjustGrid(userInput);
+
 
 
 
